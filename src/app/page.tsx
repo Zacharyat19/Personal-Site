@@ -1,15 +1,19 @@
 import About from '../../components/About';
 import Skills from '../../components/Skills';
 import Projects from '../../components/Projects';
-import Contact from '../../components/Contact';
+import Introduction from '../../components/Introduction';
+import BackToTop from '../../components/BackToTop';
 
 export default function Page() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12 space-y-20">
-      <About />
-      <Projects />
-      <Skills />
-      <Contact />
-    </main>
+    <>
+      <main className="min-h-screen text-foreground max-w-7xl mx-auto px-8 py-12">
+        <Introduction className="mb-5 "  />
+        <About className="mb-20" />
+        <Projects className="mb-20" />
+        <Skills  />
+      </main>
+      <BackToTop />
+    </>   
   );
 }
