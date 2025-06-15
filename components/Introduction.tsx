@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 type IntroductionProps = {
   className?: string;
 };
@@ -24,11 +26,12 @@ export default function Introduction({ className }: IntroductionProps) {
 
         {/* Image on the right */}
         <div className="md:w-1/3 flex justify-start md:justify-start -ml-6">
-          <img
-            src="/profile.jpg"
-            alt="Zach Taylor"
-            className="w-48 h-48 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover rounded-full shadow-lg"
-          />
+            <Image
+                src="/profile.jpg"
+                alt="Zach Taylor"
+                width={288} // adjust width as needed (72 * 4 for example)
+                height={288} // adjust height as needed
+                className="object-cover rounded-full shadow-lg"/>
         </div>
       </div>
     </section>
