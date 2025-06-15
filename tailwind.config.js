@@ -6,7 +6,15 @@ module.exports = {
     './components/**/*.{ts,tsx,js,jsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        background: '#0f172a', // slate-900
+        foreground: '#f1f5f9', // slate-100
+        primary: '#7dd3fc',    // sky-300
+        secondary: '#a78bfa',  // purple-400
+        accent: '#38bdf8',     // sky-400
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
 };
