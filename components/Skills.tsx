@@ -14,7 +14,7 @@ import {
   SiLinux,
   SiJenkins,
 } from 'react-icons/si';
-
+import { Nvidia } from '@lobehub/icons';
 import React from 'react';
 
 export default function Skills() {
@@ -45,8 +45,8 @@ export default function Skills() {
           <SkillItem icon={<SiNodedotjs className="w-6 h-6" />} label="Node.js" />
           <SkillItem icon={<SiTensorflow className="w-6 h-6" />} label="TensorFlow" />
           <SkillItem icon={<CudaIcon />} label="CUDA" />
-          <SkillItem icon={<RestApiIcon />} label="REST API" />
-          <SkillItem icon={<SiMysql className="w-6 h-6" />} label="MySQL" />
+          <SkillItem icon={<FastApiIcon />} label="FastAPI" />
+          <SkillItem icon={<SiMysql className="w-8 h-8" />} label="MySQL" />
           <SkillItem icon={<SiAwsamplify className="w-6 h-6" />} label="AWS" />
         </div>
       </div>
@@ -77,9 +77,49 @@ function SkillItem({ icon, label }: { icon: React.ReactNode; label: string }) {
 
 function AssemblyIcon() {
   return (
+    <div className="w-6 h-6 flex items-center justify-center bg-gray-700 rounded text-xs font-bold text-gray-300">
+      x86
+    </div>
+  );
+}
+
+function VerilogIcon() {
+  return (
+    <img
+      src="/verilog.svg"
+      alt="SystemVerilog"
+      className="w-6 h-6"
+    />
+  );
+}
+
+function MfcIcon() {
+  return (
+    <img
+      src="/MFC.svg"
+      alt="MFC"
+      className="w-6 h-6"
+    />
+  );
+}
+
+function CudaIcon() {
+  return <Nvidia size={24} className="text-[#76B900]" />;
+}
+
+function FastApiIcon() {
+  return (
+    <img
+      src="/FastAPI.svg"
+      alt="FastAPI"
+      className="w-6 h-6"
+    />
+  );
+}
+
+function FpgaIcon() {
+  return (
     <svg
-      role="img"
-      aria-label="Assembly Language"
       className="w-6 h-6 text-gray-300"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -87,55 +127,8 @@ function AssemblyIcon() {
       stroke="currentColor"
       strokeWidth={2}
     >
-      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+      <rect x="5" y="5" width="14" height="14" rx="3" ry="3" />
+      <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
     </svg>
-  );
-}
-
-function VerilogIcon() {
-  return (
-    <svg
-      className="w-6 h-6 text-gray-300"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <circle cx="12" cy="12" r="10" />
-      <text x="12" y="16" textAnchor="middle" fontSize="10" fill="#000" fontWeight="bold">
-        V
-      </text>
-    </svg>
-  );
-}
-
-function MfcIcon() {
-  return (
-    <div className="w-6 h-6 flex items-center justify-center bg-gray-700 rounded text-xs font-bold text-gray-300">
-      MFC
-    </div>
-  );
-}
-
-function CudaIcon() {
-  return (
-    <div className="w-6 h-6 flex items-center justify-center rounded text-xs font-bold text-white">
-      CUDA
-    </div>
-  );
-}
-
-function RestApiIcon() {
-  return (
-    <div className="w-6 h-6 flex items-center justify-center rounded text-xs font-bold text-white">
-      REST
-    </div>
-  );
-}
-
-function FpgaIcon() {
-  return (
-    <div className="w-6 h-6 flex items-center justify-center rounded text-xs font-bold text-white">
-      FPGA
-    </div>
   );
 }
