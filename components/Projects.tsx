@@ -39,7 +39,14 @@ export default function Projects({ className = '' }: ProjectsProps) {
             key={title}
             className="bg-muted/40 transition-colors p-6 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4"
           >
-            <h3 className="text-xl font-semibold mb-2">{title}</h3>
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl font-semibold mb-2 underline text-sky-300 hover:text-sky-400 transition"
+            >
+              {title}
+            </a>
             <p className="text-gray-300 mb-4">{description}</p>
 
             <div className="flex flex-wrap justify-center gap-2 mb-4">
