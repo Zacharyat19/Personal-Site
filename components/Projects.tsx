@@ -12,7 +12,7 @@ const projects = [
   {
     title: "TensorFlow Image Classification",
     description: "An image classification system using Python OpenCV with TensorFlow’s transfer learning to support real-time and batch image processing.",
-    tech: ["Python", "OpenCV", "TensorFLow", "Keras", "Machine Learning"],
+    tech: ["Python", "OpenCV", "TensorFlow", "Keras", "Machine Learning"],
     github: "https://github.com/Zacharyat19/TensorFlow-Image-Classification",
   },
   {
@@ -24,20 +24,20 @@ const projects = [
   {
     title: "Personal Site",
     description: "Personal website built with Next.js and TypeScript, showcasing projects and hosted on Vercel for fast, reliable deployment.",
-    tech: ["Typescript", "Node.js", "Next.js", "React"],
+    tech: ["TypeScript", "Node.js", "Next.js", "React"],
     github: "https://github.com/Zacharyat19/Personal-Site",
   },
 ];
 
-  export default function Projects({ className }: ProjectsProps) {
+export default function Projects({ className = '' }: ProjectsProps) {
   return (
     <section id="projects" className={className}>
-        <h2 className="text-5xl font-bold mb-8 text-sky-300">PROJECTS</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-          {projects.map(({ title, description, tech, github }) => (
-            <div
-              key={title}
-              className="bg-muted/40 transition-colors p-6 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4"
+      <h2 className="text-5xl font-bold mb-8 text-sky-300 text-center md:text-left">PROJECTS</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        {projects.map(({ title, description, tech, github }) => (
+          <div
+            key={title}
+            className="bg-muted/40 transition-colors p-6 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4"
           >
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-300 mb-4">{description}</p>

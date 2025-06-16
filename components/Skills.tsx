@@ -20,7 +20,7 @@ import React from 'react';
 export default function Skills() {
   return (
     <section id="skills">
-      <h2 className="text-5xl font-bold mb-8 text-sky-300">SKILLS</h2>
+      <h2 className="text-5xl font-bold mb-8 text-sky-300 text-center md:text-left">SKILLS</h2>
 
       {/* Languages */}
       <div className="mb-10">
@@ -70,7 +70,7 @@ function SkillItem({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
     <div className="flex items-center space-x-2">
       {icon}
-      <span>{label}</span>
+      <span className="text-gray-300">{label}</span>
     </div>
   );
 }
