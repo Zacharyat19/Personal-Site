@@ -9,7 +9,7 @@ export default function Introduction({ className }: IntroductionProps) {
     <section className={`pt-2 pb-20 md:pt-11 ${className ?? ""}`}>
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 md:gap-0 text-center md:text-left">
         {/* Text on the left */}
-        <div className="md:w-2/3 w-full">
+        <div className="md:w-1/3 w-full flex justify-center md:justify-start">
           <h1 className="text-6xl font-extrabold mb-4">Zach Taylor</h1>
           <p className="text-lg text-gray-300 mb-6">
             Software engineer passionate about building scalable applications and learning new technologies.
@@ -25,7 +25,7 @@ export default function Introduction({ className }: IntroductionProps) {
         </div>
 
         {/* Image on the right */}
-        <div className="md:w-1/3 w-full flex justify-center md:justify-start mt-8 md:mt-0">
+        <div className="md:w-1/3 w-full flex justify-center md:justify-start">
             <Image
                 src="/profile.jpg"
                 alt="Zach Taylor"
