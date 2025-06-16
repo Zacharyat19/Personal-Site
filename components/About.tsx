@@ -10,7 +10,7 @@ export default function About({ className = '' }: AboutProps) {
         {/* Text content */}
         <div className="text-gray-300 text-lg leading-relaxed space-y-4">
           <p>
-            Hello! I&apos;m Zach, a passionate software engineer specializing in low-level systems and embedded programming.
+            Hello! I&apos;m Zach, a software engineer specializing in low-level systems and embedded programming.
             With a degree from Oregon State University and hands-on experience at Rohde & Schwarz, I enjoy building efficient, reliable tools and working close to the hardware level.
           </p>
           <p>
