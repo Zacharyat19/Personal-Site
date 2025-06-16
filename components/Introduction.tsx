@@ -6,7 +6,7 @@ type IntroductionProps = {
 
 export default function Introduction({ className }: IntroductionProps) {
   return (
-    <section className={`pt-1 pb-20 md:pt-12 ${className ?? ''}`}>
+    <section className={`pt-0.5 pb-20 md:pt-8 ${className ?? ''}`}>
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 text-center md:text-left">
         {/* Text on the left */}
         <div className="md:w-2/3 w-full">
