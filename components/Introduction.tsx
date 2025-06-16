@@ -18,7 +18,7 @@ export default function Introduction({ className }: IntroductionProps) {
             href="/Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-4 pt-2 pb-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-lg rounded shadow transition"
+            className="inline-block px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold text-lg rounded shadow transition"
           >
             View Resume
           </a>
