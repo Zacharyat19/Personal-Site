@@ -6,7 +6,7 @@ type IntroductionProps = {
 
 export default function Introduction({ className }: IntroductionProps) {
   return (
-    <section className={`py-8 pb-20 md:pt-20 ${className ?? ''}`}>
+    <section className={`pt-2 pb-20 md:pt-12 ${className ?? ''}`}>
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 text-center md:text-left">
         {/* Text on the left */}
         <div className="md:w-2/3 w-full">
@@ -25,7 +25,7 @@ export default function Introduction({ className }: IntroductionProps) {
         </div>
 
         {/* Image on the right */}
-        <div className="md:w-1/3 w-full flex justify-center md:justify-start mt-8 md:mt-0">
+        <div className="md:w-1/3 w-full flex justify-center md:justify-start mt-14 md:mt-0">
           <Image
             src="/profile.jpg"
             alt="Zach Taylor"
