@@ -6,7 +6,7 @@ type IntroductionProps = {
 
 export default function Introduction({ className }: IntroductionProps) {
   return (
-    <section className={`pt-2 pb-20 md:pt-12 ${className ?? ''}`}>
+    <section className={`pt-1 pb-20 md:pt-12 ${className ?? ''}`}>
       <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 text-center md:text-left">
         {/* Text on the left */}
         <div className="md:w-2/3 w-full">
@@ -18,7 +18,7 @@ export default function Introduction({ className }: IntroductionProps) {
             href="/Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded shadow transition"
+            className="inline-block px-6 py-2 bg-sky-600 hover:bg-sky-700 text-white font-semibold rounded shadow transition"
           >
             View Resume
           </a>
