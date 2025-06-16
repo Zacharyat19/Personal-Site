@@ -4,6 +4,12 @@ import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col">
         <nav className="bg-gray-800 border-b border-gray-700">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
