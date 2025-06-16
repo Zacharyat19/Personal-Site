@@ -5,7 +5,7 @@ type AboutProps = {
 export default function About({ className = '' }: AboutProps) {
   return (
     <section id="about" className={className}>
-      <h2 className="text-5xl font-bold mb-6 text-sky-300">About Me</h2>
+      <h2 className="text-5xl font-bold mb-6 text-sky-300">ABOUT ME</h2>
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
         {/* Text content */}
         <div className="text-gray-300 text-lg leading-relaxed space-y-4">

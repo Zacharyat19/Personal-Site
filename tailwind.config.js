@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         universal: '#222232',
+        muted: '#313148'
       },
     },
   },

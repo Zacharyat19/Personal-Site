@@ -32,12 +32,12 @@ const projects = [
   export default function Projects({ className }: ProjectsProps) {
   return (
     <section id="projects" className={className}>
-        <h2 className="text-5xl font-bold mb-8 text-sky-300">Projects</h2>
+        <h2 className="text-5xl font-bold mb-8 text-sky-300">PROJECTS</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
           {projects.map(({ title, description, tech, github }) => (
             <div
               key={title}
-              className="bg-background p-6 rounded-lg shadow-md flex flex-col items-center text-center"
+              className="bg-muted/40 transition-colors p-6 rounded-xl shadow-lg flex flex-col items-center text-center space-y-4"
           >
             <h3 className="text-xl font-semibold mb-2">{title}</h3>
             <p className="text-gray-300 mb-4">{description}</p>

@@ -6,10 +6,10 @@ type IntroductionProps = {
 
 export default function Introduction({ className }: IntroductionProps) {
   return (
-    <section className={`py-20 ${className ?? ""}`}>
-      <div className="flex flex-col md:flex-row items-start justify-between gap-6">
+    <section className={`py-12 pb-20 md:pt-20 ${className ?? ""}`}>
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-6 text-center md:text-left">
         {/* Text on the left */}
-        <div className="md:w-2/3 text-left">
+        <div className="md:w-2/3 w-full">
           <h1 className="text-6xl font-extrabold mb-4">Zach Taylor</h1>
           <p className="text-lg text-gray-300 mb-6">
             Software Engineer passionate about building scalable applications and learning new technologies.
@@ -25,7 +25,7 @@ export default function Introduction({ className }: IntroductionProps) {
         </div>
 
         {/* Image on the right */}
-        <div className="md:w-1/3 flex justify-start md:justify-start -ml-6">
+        <div className="md:w-1/3 w-full flex justify-center md:justify-start">
             <Image
                 src="/profile.jpg"
                 alt="Zach Taylor"

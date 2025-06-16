@@ -20,11 +20,11 @@ import React from 'react';
 export default function Skills() {
   return (
     <section id="skills">
-      <h2 className="text-5xl font-bold mb-8 text-sky-300">Skills</h2>
+      <h2 className="text-5xl font-bold mb-8 text-sky-300">SKILLS</h2>
 
       {/* Languages */}
       <div className="mb-10">
-        <h3 className="text-xl font-semibold mb-4">Languages</h3>
+        <h3 className="text-2xl font-semibold mb-4">Languages</h3>
         <div className="flex flex-wrap gap-8 text-gray-300 text-lg leading-relaxed">
           <SkillItem icon={<SiCplusplus className="w-6 h-6" />} label="C++" />
           <SkillItem icon={<SiPython className="w-6 h-6" />} label="Python" />
@@ -38,7 +38,7 @@ export default function Skills() {
 
       {/* Libraries/Frameworks */}
       <div className="mb-10">
-        <h3 className="text-xl font-semibold mb-4">Libraries / Frameworks</h3>
+        <h3 className="text-2xl font-semibold mb-4">Libraries / Frameworks</h3>
         <div className="flex flex-wrap gap-8 text-gray-300 text-lg leading-relaxed">
           <SkillItem icon={<MfcIcon />} label="MFC" />
           <SkillItem icon={<SiReact className="w-6 h-6" />} label="React" />
@@ -53,7 +53,7 @@ export default function Skills() {
 
       {/* Developer Tools */}
       <div>
-        <h3 className="text-xl font-semibold mb-4">Developer Tools</h3>
+        <h3 className="text-2xl font-semibold mb-4">Developer Tools</h3>
         <div className="flex flex-wrap gap-8 text-gray-300 text-lg leading-relaxed">
           <SkillItem icon={<SiGit className="w-6 h-6" />} label="Git" />
           <SkillItem icon={<SiDocker className="w-6 h-6" />} label="Docker" />
