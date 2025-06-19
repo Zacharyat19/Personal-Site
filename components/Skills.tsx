@@ -4,15 +4,21 @@ import {
   SiGo,
   SiRust,
   SiTypescript,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
   SiReact,
   SiNodedotjs,
   SiTensorflow,
   SiMysql,
+  SiTailwindcss,
+  SiNextdotjs,
   SiAwsamplify,
   SiGit,
   SiDocker,
   SiLinux,
   SiJenkins,
+  SiVercel,
 } from 'react-icons/si';
 import { Nvidia } from '@lobehub/icons';
 import React from 'react';
@@ -32,6 +38,10 @@ export default function Skills() {
           <SkillItem icon={<SiRust className="w-6 h-6" />} label="Rust" />
           <SkillItem icon={<AssemblyIcon />} label="Assembly" />
           <SkillItem icon={<SiTypescript className="w-6 h-6" />} label="TypeScript" />
+          <SkillItem icon={<SiJavascript className="w-6 h-6" />} label="JavaScript" />
+          <SkillItem icon={<SiHtml5 className="w-6 h-6" />} label="HTML" />
+          <SkillItem icon={<SiCss3 className="w-6 h-6" />} label="CSS" />
+          <SkillItem icon={<SiMysql className="w-6 h-6" />} label="SQL" />
           <SkillItem icon={<VerilogIcon />} label="Verilog" />
         </div>
       </div>
@@ -46,8 +56,8 @@ export default function Skills() {
           <SkillItem icon={<SiTensorflow className="w-6 h-6" />} label="TensorFlow" />
           <SkillItem icon={<CudaIcon />} label="CUDA" />
           <SkillItem icon={<FastApiIcon />} label="FastAPI" />
-          <SkillItem icon={<SiMysql className="w-8 h-8" />} label="MySQL" />
-          <SkillItem icon={<SiAwsamplify className="w-6 h-6" />} label="AWS" />
+          <SkillItem icon={<SiTailwindcss className="w-6 h-6" />} label="Tailwind CSS" />
+          <SkillItem icon={<SiNextdotjs className="w-6 h-6" />} label="Next.js" />
         </div>
       </div>
 
@@ -59,6 +69,10 @@ export default function Skills() {
           <SkillItem icon={<SiDocker className="w-6 h-6" />} label="Docker" />
           <SkillItem icon={<SiLinux className="w-6 h-6" />} label="Linux" />
           <SkillItem icon={<SiJenkins className="w-6 h-6" />} label="Jenkins" />
+          <SkillItem icon={<VSIcon />} label="Visual Studio" />
+          <SkillItem icon={<SiVercel className="w-6 h-6" />} label="Vercel" />
+          <SkillItem icon={<GtestIcon />} label="Google Test" />
+          <SkillItem icon={<SiAwsamplify className="w-6 h-6" />} label="AWS" />
           <SkillItem icon={<FpgaIcon />} label="Microcontrollers" />
         </div>
       </div>
@@ -85,21 +99,13 @@ function AssemblyIcon() {
 
 function VerilogIcon() {
   return (
-    <img
-      src="/verilog.svg"
-      alt="SystemVerilog"
-      className="w-6 h-6"
-    />
+    <img src="/verilog.svg" alt="SystemVerilog" className="w-6 h-6" />
   );
 }
 
 function MfcIcon() {
   return (
-    <img
-      src="/MFC.svg"
-      alt="MFC"
-      className="w-6 h-6"
-    />
+    <img src="/MFC.svg" alt="MFC" className="w-6 h-6" />
   );
 }
 
@@ -109,26 +115,27 @@ function CudaIcon() {
 
 function FastApiIcon() {
   return (
-    <img
-      src="/FastAPI.svg"
-      alt="FastAPI"
-      className="w-6 h-6"
-    />
+    <img src="/FastAPI.svg" alt="FastAPI" className="w-6 h-6" />
   );
 }
 
 function FpgaIcon() {
   return (
-    <svg
-      className="w-6 h-6 text-gray-300"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth={2}
-    >
+    <svg className="w-6 h-6 text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <rect x="5" y="5" width="14" height="14" rx="3" ry="3" />
       <path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4" />
     </svg>
+  );
+}
+
+function GtestIcon() {
+  return (
+    <img src="/Google.svg" alt="Google Test" className="w-6 h-6" />
+  );
+}
+
+function VSIcon() {
+  return (
+    <img src="/VS.svg" alt="Visual Studio" className="w-6 h-6" />
   );
 }

@@ -1,6 +1,7 @@
 # Zach Taylor - Personal Site
 
 This is the source code for my personal website built with Next.js and TypeScript. It serves as my professional portfolio, showcasing my skills, projects, and background as a software engineer.
+Full site available [here]{https://www.zachtaylor.site/}
 
 ## Features
 
