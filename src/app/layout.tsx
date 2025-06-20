@@ -21,12 +21,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {/* Nav links */}
               <div className="hidden md:flex space-x-8">
                 <a
-                  href="#intro"
-                  className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-semibold"
-                >
-                  Intro
-                </a>
-                <a
                   href="#about"
                   className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-xl font-semibold"
                 >
