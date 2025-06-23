@@ -27,6 +27,18 @@ const projects = [
     tech: ["TypeScript", "Node.js", "Next.js", "React"],
     github: "https://github.com/Zacharyat19/Personal-Site",
   },
+  {
+    title: "System Verilog Driver",
+    description: "Designed and implemented a SystemVerilog based VGA driver to animate and control a sprite in real time on an FPGA.",
+    tech: ["System Verilog", "FPGA", "Quartus"],
+    github: "https://github.com/Zacharyat19/System-Verilog-Driver",
+  },
+  {
+    title: "Algorithm Benchmark Framework",
+    description: "Benchmarks algorithms with high-resolution timing, aiming to evaluate performance for various data sizes and algorithm types.",
+    tech: ["C++", "CLI"],
+    github: "https://github.com/Zacharyat19/Algorithm-Benchmark-Framework",
+  },
 ];
 
 export default function Projects({ className = '' }: ProjectsProps) {
