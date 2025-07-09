@@ -72,6 +72,7 @@ export default function Skills() {
           <SkillItem icon={<VSIcon />} label="Visual Studio" />
           <SkillItem icon={<SiVercel className="w-6 h-6" />} label="Vercel" />
           <SkillItem icon={<GtestIcon />} label="Google Test" />
+          <SkillItem icon={<SIMD />} label="SIMD" />
           <SkillItem icon={<SiAwsamplify className="w-6 h-6" />} label="AWS" />
           <SkillItem icon={<FpgaIcon />} label="Microcontrollers" />
         </div>
@@ -116,6 +117,12 @@ function CudaIcon() {
 function FastApiIcon() {
   return (
     <img src="/FastAPI.svg" alt="FastAPI" className="w-6 h-6" />
+  );
+}
+
+function SIMD() {
+  return (
+    <img src="/SIMD.svg" alt="SIMD" className="w-6 h-6" />
   );
 }
 
