@@ -16,6 +16,12 @@ const projects = [
     github: "https://github.com/Zacharyat19/TensorFlow-Image-Classification",
   },
   {
+    title: "SIMD Image Filters",
+    description: "Implements blur, sharpen, and edge detection image filters in C++ using both scalar (naive loop-based) and SIMD optimized versions.",
+    tech: ["C++", "SIMD", "Runtime Optimization"],
+    github: "https://github.com/Zacharyat19/SIMD-Image-Filter-Library",
+  },
+  {
     title: "Simulated Embedded Device Kernel",
     description: "Simulates a simple RTOS in C++ with basic task scheduling, inter-task communication, hardware abstraction, and time-based control.",
     tech: ["C++", "RTOS", "Firmware"],
