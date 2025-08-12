@@ -6,13 +6,13 @@ const projects = [
   {
     title: "Patient Monitoring Robot",
     description: "A robotic monitoring system designed for nursing homes that detects falls and abnormal movements.",
-    tech: ["Python", "OpenCV", "ROS2", "Linux", "Embedded"],
+    tech: ["Python", "OpenCV", "ROS2", "Linux", "Embedded", "AI", "Machine Learning"],
     github: "https://github.com/Zacharyat19/patient-monitoring",
   },
   {
     title: "TensorFlow Image Classification",
     description: "An image classification system using Python OpenCV with TensorFlow’s transfer learning to support real-time and batch image processing.",
-    tech: ["Python", "OpenCV", "TensorFlow", "Keras", "Machine Learning"],
+    tech: ["Python", "OpenCV", "TensorFlow", "Keras", "Machine Learning", "AI"],
     github: "https://github.com/Zacharyat19/TensorFlow-Image-Classification",
   },
   {
