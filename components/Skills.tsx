@@ -22,70 +22,102 @@ import {
 } from 'react-icons/si';
 import { Nvidia } from '@lobehub/icons';
 import React from 'react';
+import ScrollAnimation from './ScrollAnimation';
+
+const skillCategories = [
+  {
+    title: "Languages",
+    skills: [
+      { icon: <SiCplusplus className="w-6 h-6" />, label: "C++" },
+      { icon: <SiPython className="w-6 h-6" />, label: "Python" },
+      { icon: <SiGo className="w-6 h-6" />, label: "Golang" },
+      { icon: <SiRust className="w-6 h-6" />, label: "Rust" },
+      { icon: <AssemblyIcon />, label: "Assembly" },
+      { icon: <SiTypescript className="w-6 h-6" />, label: "TypeScript" },
+      { icon: <SiJavascript className="w-6 h-6" />, label: "JavaScript" },
+      { icon: <SiHtml5 className="w-6 h-6" />, label: "HTML" },
+      { icon: <SiCss3 className="w-6 h-6" />, label: "CSS" },
+      { icon: <SiMysql className="w-6 h-6" />, label: "SQL" },
+      { icon: <VerilogIcon />, label: "Verilog" },
+    ]
+  },
+  {
+    title: "Libraries / Frameworks",
+    skills: [
+      { icon: <MfcIcon />, label: "MFC" },
+      { icon: <SiReact className="w-6 h-6" />, label: "React" },
+      { icon: <SiNodedotjs className="w-6 h-6" />, label: "Node.js" },
+      { icon: <SiTensorflow className="w-6 h-6" />, label: "TensorFlow" },
+      { icon: <CudaIcon />, label: "CUDA" },
+      { icon: <FastApiIcon />, label: "FastAPI" },
+      { icon: <SiTailwindcss className="w-6 h-6" />, label: "Tailwind CSS" },
+      { icon: <SiNextdotjs className="w-6 h-6" />, label: "Next.js" },
+    ]
+  },
+  {
+    title: "Developer Tools",
+    skills: [
+      { icon: <SiGit className="w-6 h-6" />, label: "Git" },
+      { icon: <SiDocker className="w-6 h-6" />, label: "Docker" },
+      { icon: <SiLinux className="w-6 h-6" />, label: "Linux" },
+      { icon: <SiJenkins className="w-6 h-6" />, label: "Jenkins" },
+      { icon: <VSIcon />, label: "Visual Studio" },
+      { icon: <SiVercel className="w-6 h-6" />, label: "Vercel" },
+      { icon: <GtestIcon />, label: "Google Test" },
+      { icon: <SIMD />, label: "SIMD" },
+      { icon: <SiAwsamplify className="w-6 h-6" />, label: "AWS" },
+      { icon: <FpgaIcon />, label: "Microcontrollers" },
+    ]
+  }
+];
 
 export default function Skills() {
   return (
-    <section id="skills">
-      <h2 className="text-5xl font-bold mb-8 text-sky-300 text-center md:text-left">SKILLS</h2>
+    <section id="skills" className="section-container">
+      <div className="w-full">
+        <ScrollAnimation animation="fade-in-up">
+          <h2 className="text-6xl font-bold mb-16 text-primary text-center">
+            Skills
+          </h2>
+        </ScrollAnimation>
 
-      {/* Languages */}
-      <div className="mb-10">
-        <h3 className="text-2xl font-semibold mb-4">Languages</h3>
-        <div className="flex flex-wrap gap-8 text-gray-300 text-lg leading-relaxed">
-          <SkillItem icon={<SiCplusplus className="w-6 h-6" />} label="C++" />
-          <SkillItem icon={<SiPython className="w-6 h-6" />} label="Python" />
-          <SkillItem icon={<SiGo className="w-6 h-6" />} label="Golang" />
-          <SkillItem icon={<SiRust className="w-6 h-6" />} label="Rust" />
-          <SkillItem icon={<AssemblyIcon />} label="Assembly" />
-          <SkillItem icon={<SiTypescript className="w-6 h-6" />} label="TypeScript" />
-          <SkillItem icon={<SiJavascript className="w-6 h-6" />} label="JavaScript" />
-          <SkillItem icon={<SiHtml5 className="w-6 h-6" />} label="HTML" />
-          <SkillItem icon={<SiCss3 className="w-6 h-6" />} label="CSS" />
-          <SkillItem icon={<SiMysql className="w-6 h-6" />} label="SQL" />
-          <SkillItem icon={<VerilogIcon />} label="Verilog" />
-        </div>
-      </div>
-
-      {/* Libraries/Frameworks */}
-      <div className="mb-10">
-        <h3 className="text-2xl font-semibold mb-4">Libraries / Frameworks</h3>
-        <div className="flex flex-wrap gap-8 text-gray-300 text-lg leading-relaxed">
-          <SkillItem icon={<MfcIcon />} label="MFC" />
-          <SkillItem icon={<SiReact className="w-6 h-6" />} label="React" />
-          <SkillItem icon={<SiNodedotjs className="w-6 h-6" />} label="Node.js" />
-          <SkillItem icon={<SiTensorflow className="w-6 h-6" />} label="TensorFlow" />
-          <SkillItem icon={<CudaIcon />} label="CUDA" />
-          <SkillItem icon={<FastApiIcon />} label="FastAPI" />
-          <SkillItem icon={<SiTailwindcss className="w-6 h-6" />} label="Tailwind CSS" />
-          <SkillItem icon={<SiNextdotjs className="w-6 h-6" />} label="Next.js" />
-        </div>
-      </div>
-
-      {/* Developer Tools */}
-      <div>
-        <h3 className="text-2xl font-semibold mb-4">Developer Tools</h3>
-        <div className="flex flex-wrap gap-8 text-gray-300 text-lg leading-relaxed">
-          <SkillItem icon={<SiGit className="w-6 h-6" />} label="Git" />
-          <SkillItem icon={<SiDocker className="w-6 h-6" />} label="Docker" />
-          <SkillItem icon={<SiLinux className="w-6 h-6" />} label="Linux" />
-          <SkillItem icon={<SiJenkins className="w-6 h-6" />} label="Jenkins" />
-          <SkillItem icon={<VSIcon />} label="Visual Studio" />
-          <SkillItem icon={<SiVercel className="w-6 h-6" />} label="Vercel" />
-          <SkillItem icon={<GtestIcon />} label="Google Test" />
-          <SkillItem icon={<SIMD />} label="SIMD" />
-          <SkillItem icon={<SiAwsamplify className="w-6 h-6" />} label="AWS" />
-          <SkillItem icon={<FpgaIcon />} label="Microcontrollers" />
+        <div className="space-y-16 max-w-7xl mx-auto">
+          {skillCategories.map((category, categoryIndex) => (
+            <div key={category.title}>
+              <ScrollAnimation animation="fade-in-up" delay={200 + categoryIndex * 100}>
+                <h3 className="text-3xl font-bold mb-8 text-center text-secondary-foreground">
+                  {category.title}
+                </h3>
+              </ScrollAnimation>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+                {category.skills.map((skill, skillIndex) => (
+                  <ScrollAnimation 
+                    key={skill.label} 
+                    animation="fade-in-up" 
+                    delay={300 + categoryIndex * 100 + skillIndex * 50}
+                  >
+                    <SkillCard icon={skill.icon} label={skill.label} />
+                  </ScrollAnimation>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function SkillItem({ icon, label }: { icon: React.ReactNode; label: string }) {
+function SkillCard({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="flex items-center space-x-2">
-      {icon}
-      <span className="text-gray-300">{label}</span>
+    <div className="group bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 hover:border-primary/30 text-center">
+      <div className="text-primary group-hover:text-accent transition-colors mb-3 flex justify-center">
+        {icon}
+      </div>
+      <span className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">
+        {label}
+      </span>
     </div>
   );
 }

@@ -7,11 +7,13 @@ import BackToTop from '../../components/BackToTop';
 export default function Page() {
   return (
     <>
-      <main className="min-h-screen text-foreground max-w-7xl mx-auto px-8 py-12">
-        <Introduction className="mb-5 "  />
-        <About className="mb-20" />
-        <Projects className="mb-20" />
-        <Skills  />
+      <main className="min-h-screen text-foreground">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Introduction />
+          <About />
+          <Projects />
+          <Skills />
+        </div>
       </main>
       <BackToTop />
     </>   
