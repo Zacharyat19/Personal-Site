@@ -25,15 +25,6 @@ const contactLinks = [
       </svg>
     ),
   },
-  {
-    name: 'Email',
-    href: 'mailto:Zacharyat19@gmail.com',
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-  },
 ];
 
 export default function Contact({ className = '' }: ContactProps) {
@@ -47,9 +38,7 @@ export default function Contact({ className = '' }: ContactProps) {
     try {
       const response = await fetch('https://formspree.io/f/xnnzenwp', {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-        },
+        headers: { 'Accept': 'application/json' },
         body: formData,
       });
 
@@ -59,7 +48,7 @@ export default function Contact({ className = '' }: ContactProps) {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };
@@ -70,10 +59,10 @@ export default function Contact({ className = '' }: ContactProps) {
         <ScrollAnimation animation="fade-in-up">
           <div className="text-center mb-16">
             <h2 className="text-5xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
-              Let's Connect
+              Let&apos;s Connect
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              I'm always interested in new opportunities and collaborations. Feel free to reach out!
+              I&apos;m always interested in new opportunities and collaborations. Feel free to reach out!
             </p>
           </div>
         </ScrollAnimation>
@@ -84,8 +73,8 @@ export default function Contact({ className = '' }: ContactProps) {
             <div className="space-y-8">
               <h3 className="text-2xl font-bold text-foreground mb-6">Get in touch</h3>
               <div className="space-y-4">
-                {contactLinks.map((link, index) => (
-                  <ScrollAnimation key={link.name} animation="fade-in-left" delay={300 + index * 100}>
+                {contactLinks.map((link, i) => (
+                  <ScrollAnimation key={link.name} animation="fade-in-left" delay={300 + i * 100}>
                     <a
                       href={link.href}
                       target={link.name !== 'Email' ? '_blank' : undefined}

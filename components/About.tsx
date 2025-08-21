@@ -26,7 +26,7 @@ export default function About({ className = '' }: AboutProps) {
               <div className="space-y-4">
                 <h3 className="text-2xl font-bold text-foreground">Software Engineer & Problem Solver</h3>
                 <p className="text-muted-foreground text-lg leading-relaxed">
-                  Hello! I'm <span className="text-primary font-semibold">Zach</span>, a software engineer specializing in low-level systems and embedded programming.
+                  Hello! I&apos;m <span className="text-primary font-semibold">Zach</span>, a software engineer specializing in low-level systems and optimizations.
                   With a degree from Oregon State University and hands-on experience at Rohde & Schwarz, I enjoy building efficient, reliable tools and working close to the hardware level.
                 </p>
               </div>
@@ -37,8 +37,8 @@ export default function About({ className = '' }: AboutProps) {
                 <h4 className="text-xl font-semibold text-foreground">Technical Expertise</h4>
                 <p className="text-muted-foreground leading-relaxed">
                   I have experience across a broad range of technologies including <span className="text-primary font-medium">Python, TypeScript, C++, Go, and Assembly</span>. 
-                  I'm proficient with frameworks and tools like Node.js, FastAPI, TensorFlow, Docker, Git, and Jenkins. 
-                  I'm comfortable working with Linux/Unix environments and developing both firmware and web applications.
+                  I&apos;m proficient with frameworks and tools like Node.js, FastAPI, TensorFlow, Docker, Git, and Jenkins. 
+                  I&apos;m comfortable working with Linux/Unix environments and developing both firmware and web applications.
                 </p>
               </div>
             </ScrollAnimation>
@@ -47,7 +47,7 @@ export default function About({ className = '' }: AboutProps) {
               <div className="bg-gradient-accent/5 backdrop-blur-sm rounded-xl p-6 border border-primary/10">
                 <p className="text-foreground leading-relaxed">
                   <strong className="text-primary">Currently seeking new opportunities</strong> where I can grow and learn. 
-                  If you're looking for a motivated developer with a strong willingness to learn and contribute, I'd love to connect!
+                  If you&apos;re looking for a motivated developer with a strong willingness to learn and contribute, I&apos;d love to connect!
                 </p>
               </div>
             </ScrollAnimation>
@@ -62,7 +62,7 @@ export default function About({ className = '' }: AboutProps) {
               { label: 'Projects Completed', value: '20+' },
               { label: 'Technologies', value: '15+' },
               { label: 'Coffee Consumed', value: '∞' },
-            ].map((stat, index) => (
+            ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">{stat.value}</div>
                 <div className="text-muted-foreground text-sm">{stat.label}</div>
