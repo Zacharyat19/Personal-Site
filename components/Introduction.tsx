@@ -7,54 +7,69 @@ type IntroductionProps = {
 
 export default function Introduction({ className }: IntroductionProps) {
   return (
-    <section className={`section-container ${className ?? ''}`}>
-      <div className="w-full">
-        <div className="flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-12 text-center md:text-left">
-          {/* Text on the left */}
-          <div className="md:w-2/3 w-full space-y-6">
-            <ScrollAnimation animation="fade-in-left">
-              <h1 className="text-7xl md:text-8xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">
+    <section id="home" className={`min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-background/50 ${className ?? ''}`}>
+      {/* Background gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-accent opacity-5"></div>
+      
+      <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center text-center space-y-8">
+          
+          {/* Hero Content */}
+          <ScrollAnimation animation="fade-in-up">
+            <div className="space-y-6">
+              <p className="text-primary font-medium text-lg tracking-wide uppercase">
+                Software Engineer
+              </p>
+              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-primary bg-clip-text text-transparent leading-tight">
                 Zach Taylor
               </h1>
-            </ScrollAnimation>
-            
-            <ScrollAnimation animation="fade-in-left" delay={200}>
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                Software engineer passionate about building scalable applications and learning new technologies.
-                Specializing in low-level systems and embedded programming.
+              <p className="text-xl md:text-2xl text-muted-foreground font-light max-w-3xl mx-auto">
+                Creative engineer who designs scalable applications and develops tailored solutions that meet customer needs.
               </p>
-            </ScrollAnimation>
-            
-            <ScrollAnimation animation="fade-in-left" delay={400}>
+            </div>
+          </ScrollAnimation>
+          
+          <ScrollAnimation animation="fade-in-up" delay={200}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="#projects"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-primary-foreground font-semibold text-lg rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105"
+              >
+                View My Work
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                </svg>
+              </a>
               <a
                 href="/Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-gradient-primary text-primary-foreground font-semibold text-lg rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-4 bg-card/50 border border-border text-foreground font-semibold text-lg rounded-xl shadow-elegant hover:shadow-glow hover:border-primary/30 transition-all duration-300 hover:scale-105"
               >
                 View Resume
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </a>
-            </ScrollAnimation>
-          </div>
+            </div>
+          </ScrollAnimation>
 
-          {/* Image on the right */}
-          <div className="md:w-1/3 w-full flex justify-center md:justify-end">
-            <ScrollAnimation animation="fade-in-right" delay={300}>
+          {/* Hero Image */}
+          <ScrollAnimation animation="fade-in-up" delay={400}>
+            <div className="relative mt-12">
+              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-20 scale-110 animate-pulse"></div>
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-primary rounded-full blur-2xl opacity-20 scale-110"></div>
                 <Image
                   src="/profile.jpg"
-                  alt="Zach Taylor"
-                  width={320}
-                  height={320}
-                  className="relative object-cover rounded-full shadow-elegant border-4 border-border"
+                  alt="Zach Taylor - Software Engineer"
+                  width={300}
+                  height={300}
+                  className="relative object-cover rounded-full shadow-glow border-4 border-primary/20"
+                  priority
                 />
               </div>
-            </ScrollAnimation>
-          </div>
+            </div>
+          </ScrollAnimation>
         </div>
       </div>
     </section>

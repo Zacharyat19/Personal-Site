@@ -73,29 +73,34 @@ const skillCategories = [
 
 export default function Skills() {
   return (
-    <section id="skills" className="section-container">
-      <div className="w-full">
+    <section id="skills" className="py-24 bg-gradient-to-br from-background/50 to-background">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <ScrollAnimation animation="fade-in-up">
-          <h2 className="text-6xl font-bold mb-16 text-primary text-center">
-            Skills
-          </h2>
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
+              Skills & Technologies
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              A comprehensive overview of my technical expertise and tools
+            </p>
+          </div>
         </ScrollAnimation>
 
-        <div className="space-y-16 max-w-7xl mx-auto">
+        <div className="space-y-12">
           {skillCategories.map((category, categoryIndex) => (
             <div key={category.title}>
-              <ScrollAnimation animation="fade-in-up" delay={200 + categoryIndex * 100}>
-                <h3 className="text-3xl font-bold mb-8 text-center text-secondary-foreground">
+              <ScrollAnimation animation="fade-in-up" delay={100 + categoryIndex * 100}>
+                <h3 className="text-2xl font-bold mb-8 text-center text-foreground">
                   {category.title}
                 </h3>
               </ScrollAnimation>
               
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 {category.skills.map((skill, skillIndex) => (
                   <ScrollAnimation 
                     key={skill.label} 
                     animation="fade-in-up" 
-                    delay={300 + categoryIndex * 100 + skillIndex * 50}
+                    delay={200 + categoryIndex * 50 + skillIndex * 30}
                   >
                     <SkillCard icon={skill.icon} label={skill.label} />
                   </ScrollAnimation>
@@ -111,8 +116,8 @@ export default function Skills() {
 
 function SkillCard({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="group bg-card/50 backdrop-blur-sm border border-border rounded-xl p-6 shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 hover:border-primary/30 text-center">
-      <div className="text-primary group-hover:text-accent transition-colors mb-3 flex justify-center">
+    <div className="group bg-card/30 backdrop-blur-sm border border-border rounded-xl p-4 shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 hover:border-primary/30 text-center">
+      <div className="text-primary group-hover:scale-110 transition-transform duration-300 mb-3 flex justify-center">
         {icon}
       </div>
       <span className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">
