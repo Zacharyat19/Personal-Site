@@ -12,7 +12,12 @@ const contactLinks = [
     href: 'mailto:Zacharyat19@gmail.com',
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+        />
       </svg>
     ),
   },
@@ -21,7 +26,7 @@ const contactLinks = [
     href: 'https://www.linkedin.com/in/zachtaylor22775/',
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
       </svg>
     ),
   },
@@ -29,10 +34,10 @@ const contactLinks = [
 
 export default function Contact({ className = '' }: ContactProps) {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+  const [formErrors, setFormErrors] = useState<{ name?: string; email?: string; message?: string }>({});
 
   const validate = (formData: FormData) => {
-    const newErrors: typeof errors = {};
+    const newErrors: typeof formErrors = {};
     const name = formData.get('name')?.toString().trim();
     const email = formData.get('email')?.toString().trim();
     const message = formData.get('message')?.toString().trim();
@@ -53,16 +58,16 @@ export default function Contact({ className = '' }: ContactProps) {
     // Validate before sending
     const newErrors = validate(formData);
     if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
+      setFormErrors(newErrors);
       return;
     }
 
-    setErrors({}); // clear errors
+    setFormErrors({}); // clear errors
 
     try {
       const response = await fetch('https://formspree.io/f/xnnzenwp', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
+        headers: { Accept: 'application/json' },
         body: formData,
       });
 
@@ -72,7 +77,7 @@ export default function Contact({ className = '' }: ContactProps) {
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };
@@ -131,10 +136,12 @@ export default function Contact({ className = '' }: ContactProps) {
                     type="text"
                     id="name"
                     name="name"
-                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground ${errors.name ? 'border-red-500' : 'border-border'}`}
+                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground ${
+                      formErrors.name ? 'border-red-500' : 'border-border'
+                    }`}
                     placeholder="Your name"
                   />
-                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+                  {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
@@ -144,10 +151,12 @@ export default function Contact({ className = '' }: ContactProps) {
                     type="email"
                     id="email"
                     name="email"
-                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground ${errors.email ? 'border-red-500' : 'border-border'}`}
+                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground ${
+                      formErrors.email ? 'border-red-500' : 'border-border'
+                    }`}
                     placeholder="your.email@example.com"
                   />
-                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+                  {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
@@ -157,10 +166,12 @@ export default function Contact({ className = '' }: ContactProps) {
                     id="message"
                     name="message"
                     rows={4}
-                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground resize-none ${errors.message ? 'border-red-500' : 'border-border'}`}
+                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground resize-none ${
+                      formErrors.message ? 'border-red-500' : 'border-border'
+                    }`}
                     placeholder="Your message..."
                   ></textarea>
-                  {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
+                  {formErrors.message && <p className="text-red-500 text-sm mt-1">{formErrors.message}</p>}
                 </div>
                 <button
                   type="submit"

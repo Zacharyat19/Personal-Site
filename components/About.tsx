@@ -47,7 +47,7 @@ export default function About({ className = '' }: AboutProps) {
               <div className="bg-gradient-accent/5 backdrop-blur-sm rounded-xl p-6 border border-primary/10">
                 <p className="text-foreground leading-relaxed">
                   <strong className="text-primary">Currently seeking new opportunities</strong> where I can grow as an engineer. 
-                  If you&apos;re looking for a motivated developer with a strong willingness to learn and contribute, I'd love to connect!
+                  If you&apos;re looking for a motivated developer with a strong willingness to learn and contribute, I&apos;d love to connect!
                 </p>
               </div>
             </ScrollAnimation>
