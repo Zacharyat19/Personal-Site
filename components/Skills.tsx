@@ -116,13 +116,22 @@ export default function Skills() {
 
 function SkillCard({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <div className="group bg-card/30 backdrop-blur-sm border border-border rounded-xl p-4 shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105 hover:border-primary/30 text-center">
-      <div className="text-primary group-hover:scale-110 transition-transform duration-300 mb-3 flex justify-center">
-        {icon}
+    <div className="group relative bg-card/30 backdrop-blur-sm border border-border rounded-xl p-4 
+      shadow-[0_2px_8px_rgba(0,123,255,0.08)]   /* subtle static glow */
+      hover:shadow-[0_6px_20px_rgba(0,123,255,0.25)]  /* stronger hover glow */
+      transition-all duration-300 hover:scale-105 hover:border-primary/20 text-center">
+      
+      {/* subtle background overlay on hover */}
+      <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-5 rounded-xl pointer-events-none transition-opacity duration-300"></div>
+
+      <div className="relative z-10">
+        <div className="text-primary group-hover:scale-110 transition-transform duration-300 mb-3 flex justify-center">
+          {icon}
+        </div>
+        <span className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">
+          {label}
+        </span>
       </div>
-      <span className="text-foreground font-medium text-sm group-hover:text-primary transition-colors">
-        {label}
-      </span>
     </div>
   );
 }
@@ -149,6 +158,7 @@ function MfcIcon() {
 
 function CudaIcon() {
   return <Nvidia size={24} className="text-[#76B900]" />;
+
 }
 
 function FastApiIcon() {

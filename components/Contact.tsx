@@ -8,11 +8,11 @@ type ContactProps = {
 
 const contactLinks = [
   {
-    name: 'GitHub',
-    href: 'https://github.com/Zacharyat19',
+    name: 'Email',
+    href: 'mailto:Zacharyat19@gmail.com',
     icon: (
-      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.73-4.042-1.61-4.042-1.61-.546-1.39-1.335-1.76-1.335-1.76-1.09-.745.083-.73.083-.73 1.204.085 1.837 1.237 1.837 1.237 1.07 1.835 2.807 1.305 3.492.998.107-.776.418-1.305.76-1.605-2.665-.3-5.466-1.335-5.466-5.933 0-1.31.468-2.38 1.236-3.22-.123-.3-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.004-.404c1.02.005 2.046.137 3.003.403 2.29-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.876.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.63-5.48 5.925.43.37.823 1.103.823 2.222 0 1.606-.015 2.9-.015 3.293 0 .32.216.694.825.576C20.565 22.297 24 17.798 24 12.5 24 5.87 18.627.5 12 .5z" />
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
       </svg>
     ),
   },
@@ -29,11 +29,35 @@ const contactLinks = [
 
 export default function Contact({ className = '' }: ContactProps) {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
+
+  const validate = (formData: FormData) => {
+    const newErrors: typeof errors = {};
+    const name = formData.get('name')?.toString().trim();
+    const email = formData.get('email')?.toString().trim();
+    const message = formData.get('message')?.toString().trim();
+
+    if (!name) newErrors.name = 'Name is required';
+    if (!email) newErrors.email = 'Email is required';
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = 'Invalid email address';
+    if (!message) newErrors.message = 'Message is required';
+
+    return newErrors;
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
+
+    // Validate before sending
+    const newErrors = validate(formData);
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({}); // clear errors
 
     try {
       const response = await fetch('https://formspree.io/f/xnnzenwp', {
@@ -48,7 +72,7 @@ export default function Contact({ className = '' }: ContactProps) {
       } else {
         setStatus('error');
       }
-    } catch {
+    } catch (error) {
       setStatus('error');
     }
   };
@@ -73,8 +97,8 @@ export default function Contact({ className = '' }: ContactProps) {
             <div className="space-y-8">
               <h3 className="text-2xl font-bold text-foreground mb-6">Get in touch</h3>
               <div className="space-y-4">
-                {contactLinks.map((link, i) => (
-                  <ScrollAnimation key={link.name} animation="fade-in-left" delay={300 + i * 100}>
+                {contactLinks.map((link, index) => (
+                  <ScrollAnimation key={link.name} animation="fade-in-left" delay={300 + index * 100}>
                     <a
                       href={link.href}
                       target={link.name !== 'Email' ? '_blank' : undefined}
@@ -98,7 +122,7 @@ export default function Contact({ className = '' }: ContactProps) {
           <ScrollAnimation animation="fade-in-right" delay={400}>
             <div className="bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-8 shadow-elegant">
               <h3 className="text-2xl font-bold text-foreground mb-6">Send a message</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6 no-validate">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     Name
@@ -107,10 +131,10 @@ export default function Contact({ className = '' }: ContactProps) {
                     type="text"
                     id="name"
                     name="name"
-                    required
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground"
+                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground ${errors.name ? 'border-red-500' : 'border-border'}`}
                     placeholder="Your name"
                   />
+                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
@@ -120,10 +144,10 @@ export default function Contact({ className = '' }: ContactProps) {
                     type="email"
                     id="email"
                     name="email"
-                    required
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground"
+                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground ${errors.email ? 'border-red-500' : 'border-border'}`}
                     placeholder="your.email@example.com"
                   />
+                  {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
                 </div>
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
@@ -133,10 +157,10 @@ export default function Contact({ className = '' }: ContactProps) {
                     id="message"
                     name="message"
                     rows={4}
-                    required
-                    className="w-full px-4 py-3 bg-input border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground resize-none"
+                    className={`w-full px-4 py-3 bg-input border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-colors duration-200 text-foreground resize-none ${errors.message ? 'border-red-500' : 'border-border'}`}
                     placeholder="Your message..."
                   ></textarea>
+                  {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
                 </div>
                 <button
                   type="submit"
@@ -144,7 +168,7 @@ export default function Contact({ className = '' }: ContactProps) {
                 >
                   Send Message
                 </button>
-                {status === 'success' && <p className="text-green-500 mt-2">Message sent, Thank you!</p>}
+                {status === 'success' && <p className="text-green-500 mt-2">Message sent, thank you!</p>}
                 {status === 'error' && <p className="text-red-500 mt-2">Oops, something went wrong. Try again.</p>}
               </form>
             </div>

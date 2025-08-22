@@ -40,9 +40,9 @@ module.exports = {
         'gradient-accent': 'var(--gradient-accent)',
       },
       boxShadow: {
-        elegant: 'var(--shadow-elegant)',
-        glow: 'var(--shadow-glow)',
-      },
+        elegant: '0 4px 20px rgba(0, 123, 255, 0.1)',
+        glow: '0 8px 30px rgba(0, 123, 255, 0.4)',
+  },
       animation: {
         'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
         'fade-in-left': 'fadeInLeft 0.6s ease-out forwards',

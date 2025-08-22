@@ -71,11 +71,11 @@ export default function Projects({ className = '' }: ProjectsProps) {
               animation="fade-in-up" 
               delay={100 + (index % 3) * 100}
             >
-              <div className="group relative bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-6 shadow-elegant hover:shadow-glow transition-all duration-500 hover:scale-[1.02] hover:border-primary/40 overflow-hidden">
+              <div className="group relative bg-card/30 backdrop-blur-sm border border-border rounded-2xl p-6 shadow-elegant hover:shadow-glow transition-all duration-500 hover:scale-[1.02] hover:border-primary/40 overflow-hidden flex flex-col h-full">
                 {/* Background gradient effect */}
-                <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-accent opacity-0 group-hover:opacity-5 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
                 
-                <div className="relative z-10">
+                <div className="relative z-10 flex flex-col flex-1">
                   <div className="flex items-start justify-between mb-4">
                     <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
                       {title}
@@ -85,21 +85,17 @@ export default function Projects({ className = '' }: ProjectsProps) {
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:bg-primary/10 rounded-lg hover:scale-110"
+                        className="text-muted-foreground hover:text-primary transition-all duration-300 p-2 hover:bg-primary/10 rounded-lg hover:scale-110 focus:outline-none focus:ring-0"
                         aria-label={`${title} GitHub repository`}
                       >
-                        <svg
-                          className="h-5 w-5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
+                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 .5C5.37.5 0 5.87 0 12.5c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.73-4.042-1.61-4.042-1.61-.546-1.39-1.335-1.76-1.335-1.76-1.09-.745.083-.73.083-.73 1.204.085 1.837 1.237 1.837 1.237 1.07 1.835 2.807 1.305 3.492.998.107-.776.418-1.305.76-1.605-2.665-.3-5.466-1.335-5.466-5.933 0-1.31.468-2.38 1.236-3.22-.123-.3-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.5 11.5 0 013.004-.404c1.02.005 2.046.137 3.003.403 2.29-1.552 3.297-1.23 3.297-1.23.655 1.653.242 2.876.12 3.176.77.84 1.235 1.91 1.235 3.22 0 4.61-2.807 5.63-5.48 5.925.43.37.823 1.103.823 2.222 0 1.606-.015 2.9-.015 3.293 0 .32.216.694.825.576C20.565 22.297 24 17.798 24 12.5 24 5.87 18.627.5 12 .5z" />
                         </svg>
                       </a>
                     )}
                   </div>
                   
-                  <p className="text-muted-foreground mb-6 leading-relaxed line-clamp-3">
+                  <p className="text-muted-foreground mb-6 leading-relaxed line-clamp-3 flex-1">
                     {description}
                   </p>
 
@@ -107,7 +103,7 @@ export default function Projects({ className = '' }: ProjectsProps) {
                     {tech.slice(0, 4).map((t) => (
                       <span
                         key={t}
-                        className="bg-secondary/80 text-secondary-foreground px-3 py-1.5 rounded-full text-xs font-medium border border-border/50 group-hover:border-primary/30 transition-colors duration-300"
+                        className="bg-secondary/80 text-secondary-foreground px-3 py-1.5 rounded-full text-xs font-medium border border-border/50 group-hover:border-primary/30 focus:outline-none focus:ring-0"
                       >
                         {t}
                       </span>
@@ -124,7 +120,7 @@ export default function Projects({ className = '' }: ProjectsProps) {
                       href={github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors duration-300"
+                      className="inline-flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors duration-300 mt-auto focus:outline-none focus:ring-0"
                     >
                       View Project
                       <svg className="ml-1 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">

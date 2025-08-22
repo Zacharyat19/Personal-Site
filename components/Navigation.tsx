@@ -12,13 +12,13 @@ const navItems = [
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolled, setIsScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setIsScrolled(scrollY > 50);
 
-      // Update active section based on scroll position
       const sections = navItems.map(item => document.querySelector(item.href));
       const scrollPosition = scrollY + 100;
 
@@ -31,7 +31,7 @@ export default function Navigation() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -39,15 +39,18 @@ export default function Navigation() {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setMenuOpen(false);
     }
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-background/95 backdrop-blur-md border-b border-border shadow-elegant' 
-        : 'bg-transparent'
-    }`}>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-md border-b border-border ${
+        isScrolled
+          ? 'bg-background/95 shadow-md'
+          : 'bg-background/100'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -58,8 +61,8 @@ export default function Navigation() {
             Zach Taylor
           </button>
 
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Nav */}
+          <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.name}
@@ -80,13 +83,40 @@ export default function Navigation() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button className="text-foreground hover:text-primary transition-colors">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-foreground hover:text-primary transition-colors p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+            >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d={menuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'}
+                />
               </svg>
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <div className="md:hidden absolute top-16 left-0 w-full bg-background/100 backdrop-blur-md border-t border-border flex flex-col items-center py-4 space-y-4">
+            {navItems.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className={`text-lg font-medium transition-colors duration-200 hover:text-primary ${
+                  activeSection === item.href.substring(1)
+                    ? 'text-primary'
+                    : 'text-muted-foreground'
+                }`}
+              >
+                {item.name}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );

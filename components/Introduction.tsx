@@ -7,10 +7,10 @@ type IntroductionProps = {
 
 export default function Introduction({ className }: IntroductionProps) {
   return (
-    <section id="home" className={`min-h-screen flex items-center justify-center relative bg-gradient-to-br from-background via-background to-background/50 ${className ?? ''}`}>
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-accent opacity-5"></div>
-      
+    <section
+      id="home"
+      className={`flex flex-col items-center pt-40 pb-32 relative bg-background ${className ?? ''}`}
+    >
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center space-y-8">
           
@@ -41,10 +41,8 @@ export default function Introduction({ className }: IntroductionProps) {
                 </svg>
               </a>
               <a
-                href="/Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-8 py-4 bg-card/50 border border-border text-foreground font-semibold text-lg rounded-xl shadow-elegant hover:shadow-glow hover:border-primary/30 transition-all duration-300 hover:scale-105"
+                href="/resume"
+                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-primary-foreground font-semibold text-lg rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105"
               >
                 View Resume
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -57,7 +55,7 @@ export default function Introduction({ className }: IntroductionProps) {
           {/* Hero Image */}
           <ScrollAnimation animation="fade-in-up" delay={400}>
             <div className="relative mt-12">
-              <div className="absolute inset-0 bg-gradient-primary rounded-full blur-3xl opacity-20 scale-110 animate-pulse"></div>
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl scale-110 animate-pulse pointer-events-none"></div>
               <div className="relative">
                 <Image
                   src="/profile.jpg"
