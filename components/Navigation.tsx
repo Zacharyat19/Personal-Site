@@ -20,7 +20,7 @@ export default function Navigation() {
       setIsScrolled(scrollY > 50);
 
       const sections = navItems.map(item => document.querySelector(item.href));
-      const scrollPosition = scrollY + 100;
+      const scrollPosition = scrollY + window.innerHeight / 2;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i] as HTMLElement;
