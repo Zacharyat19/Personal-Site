@@ -9,7 +9,7 @@ export default function Introduction({ className }: IntroductionProps) {
   return (
     <section
       id="home"
-      className={`flex flex-col items-center pt-24 pb-32 sm:pt-32 sm:pb-40 lg:pt-36 lg:pb-32 xl:pt-52 xl:pb-56 relative bg-background ${className ?? ''}`}
+      className={`flex flex-col items-center pt-30 pb-28 sm:pt-32 sm:pb-40 lg:pt-36 lg:pb-32 xl:pt-52 xl:pb-56 relative bg-background ${className ?? ''}`}
     >
       <div className="relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center space-y-8">
