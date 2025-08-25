@@ -134,7 +134,7 @@ export default function Projects({ className = '' }: ProjectsProps) {
     </ScrollAnimation>
   );
 
-  const renderProject = ({ title, description, tech, github, featured }: typeof projects[0], index: number) => (
+  const renderProject = ({ title, description, tech, github }: typeof projects[0], index: number) => (
     <ScrollAnimation 
       key={title} 
       animation="fade-in-up" 
