@@ -41,7 +41,7 @@ export default function Introduction({ className }: IntroductionProps) {
                 </svg>
               </a>
               <a
-                href="/resume"
+                href="/Resume.pdf"
                 className="inline-flex items-center justify-center px-8 py-4 bg-gradient-primary text-primary-foreground font-semibold text-lg rounded-xl shadow-elegant hover:shadow-glow transition-all duration-300 hover:scale-105"
               >
                 View Resume
